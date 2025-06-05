@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Styled Table</title>
+  <style>
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 12px;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: pink;
+    }
+
+    tr:hover {
+      background-color: white;
+    }
+
+    caption {
+      caption-side: top;
+      font-size: 1.5em;
+      margin: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <caption>Student Marks Table</caption>
+    <thead>
+      <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>101</td>
+        <td>dhana</td>
+        <td>Math</td>
+        <td>95</td>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>Priyanka</td>
+        <td>Science</td>
+        <td>99</td>
+      </tr>
+      <tr>
+        <td>103</td>
+        <td>charmi</td>
+        <td>English</td>
+        <td>78</td>
+      </tr>
+      <tr>
+        <td>104</td>
+        <td>Abi</td>
+        <td>Math</td>
+        <td>88</td>
+      </tr>
+      <tr>
+        <td>105</td>
+        <td>tejasri</td>
+        <td>Science</td>
+        <td>91</td>
+      </tr>
+      <tr>
+        <td>106</td>
+        <td>Meena</td>
+        <td>English</td>
+        <td>84</td>
+      </tr>
+      <tr>
+        <td>107</td>
+        <td>bhuvana</td>
+        <td>Math</td>
+        <td>76</td>
+      </tr>
+      <tr>
+        <td>108</td>
+        <td>subasree</td>
+        <td>Science</td>
+        <td>92</td>
+      </tr>
+      <tr>
+        <td>109</td>
+        <td>Amritha</td>
+        <td>English</td>
+        <td>81</td>
+      </tr>
+      <tr>
+        <td>110</td>
+        <td>Sneha</td>
+        <td>Math</td>
+        <td>89</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
