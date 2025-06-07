@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #f06, #9f6, #6cf, #f6a);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .active {
+      display: block;
+    }
+
+    .profile {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .profile input[type="file"] {
+      display: none;
+    }
+
+    .upload-label {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #ccc;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .file-list {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PROFILE</h1>
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('skills')">Skills</a>
+      <a onclick="showSection('projects')">Projects</a>
+      <a onclick="showSection('certificates')">Certificate</a>
+    </nav>
+  </header>
+
+  <section class="profile">
+    <label class="upload-label">
+      <input type="file" accept="image/*" onchange="uploadImage(event)">
+      <img src="C:\Users\kirut\Downloads\WhatsApp Image 2025-06-07 at 7.03.10 PM.jpeg" class="profile-img" id="profileImage" alt="Profile Picture">
+      <p style="color: white;">Click to upload profile image</p>
+    </label>
+  </section>
+
+  <section class="section active" id="home">
+    <h2>About Web Development</h2>
+    <p>Web development is the process of making websites. It includes designing how the website looks and adding features so that people can use it easily.</p>
+    <p>It helps create websites like school sites, online shopping, and more. Web developers use coding languages like HTML, CSS, and JavaScript.</p>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p><strong>Name:</strong> D.KIRUTHIKA</p>
+    <p><strong>Age:</strong> 20</p>
+    <p><strong>Email:</strong> kiru@123.com</p>
+    <p><strong>Phone:</strong> +91-9876543210</p>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Java</li>
+      <li>C++</li>
+      <li>Python</li>
+    </ul>
+  </section>
+
+<section class="section" id="projects">
+  <h2>My Projects</h2>
+  <a href="C:\Users\kirut\Downloads\facial emotion recognition project AI.pdf" target="_blank">
+    View Facial Emotion Recognition Project (PDF)
+  </a>
+</section>
+
+<section class="section" id="certificates">
+  <h2>My Certificate</h2>
+  <a href="C:\Users\kirut\Downloads\DOC-20241002-WA0050. (1).pdf" target="_blank">View Certificate</a>
+</section>
+
+  <footer>
+    &copy; 2025 D.KIRUTHIKA. All rights reserved.
+  </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      const email = document.getElementById('emailLink');
+      const contact = document.getElementById('contactLink');
+
+      if (id === 'projects' || id === 'certificates') {
+        email.style.display = 'none';
+        contact.style.display = 'none';
+      } else {
+        email.style.display = 'inline';
+        contact.style.display = 'inline';
+      }
+    }
+
+    function uploadImage(event) {
+      const image = document.getElementById('profileImage');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    }
+
+    function handleUpload(listId, event) {
+      const fileList = event.target.files;
+      const display = document.getElementById(listId);
+      display.innerHTML = '';
+
+      for (let i = 0; i < fileList.length; i++) {
+        const fileName = document.createElement('div');
+        fileName.textContent = `• ${fileList[i].name}`;
+        display.appendChild(fileName);
+      }
+    }
+  </script>
+
+</body>
+</html>
